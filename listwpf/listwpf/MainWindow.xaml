@@ -1,12 +1,39 @@
-﻿<Window x:Class="listwpf.MainWindow"
+<Window x:Class="listwpf.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:listwpf"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Rejestr uczniów" Height="500" Width="900">
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Menu x:Name="menu" VerticalAlignment="Top" Grid.Row="0">
+            <MenuItem Header="File">
+                <MenuItem Header="New" Click="New_Click" IsEnabled="False"/>
+                <MenuItem Header="Open" Click="Open_Click"/>
+                <MenuItem Header="Save" Click="Save_Click"/>
+                <Separator/>
+                <MenuItem Header="Exit" Click="Exit_Click"/>
+            </MenuItem>
+            <MenuItem Header="Edit">
+                <MenuItem Header="New" Click="NewRecord_Click"/>
+                <MenuItem Header="Remove Selected" Click="RemoveSel_Click"/>
+            </MenuItem>
+        </Menu>
+        <ListView x:Name="listaUczniow" Grid.Row="1" SelectionMode="Extended">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="PESEL" DisplayMemberBinding="{Binding Pesel}" Width="100" />
+                    <GridViewColumn Header="Imię" DisplayMemberBinding="{Binding Imie}" Width="100" />
+                    <GridViewColumn Header="Drugie imię" DisplayMemberBinding="{Binding DrugieImie}" Width="100" />
+                    <GridViewColumn Header="Nazwisko" DisplayMemberBinding="{Binding Nazwisko}" Width="100" />
+                    <GridViewColumn Header="Data urodzenia" DisplayMemberBinding="{Binding DataUrodzenia}" Width="100" />
+                    <GridViewColumn Header="Telefon" DisplayMemberBinding="{Binding Telefon}" Width="100" />
+                    <GridViewColumn Header="Adres" DisplayMemberBinding="{Binding Adres}" Width="100" />
+                    <GridViewColumn Header="Miejscowość" DisplayMemberBinding="{Binding Miejscowosc}" Width="100" />
+                    <GridViewColumn Header="Kod pocztowy" DisplayMemberBinding="{Binding KodPocztowy}" Width="100" />
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Window>
