@@ -1,24 +1,23 @@
 <Window x:Class="listwpf.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Rejestr uczniów" Height="500" Width="900">
+        Title="Baza uczniów" Height="500" Width="950">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Menu x:Name="menu" VerticalAlignment="Top" Grid.Row="0">
-            <MenuItem Header="File">
-                <MenuItem Header="New" Click="New_Click" IsEnabled="False"/>
-                <MenuItem Header="Open" Click="Open_Click"/>
-                <MenuItem Header="Save" Click="Save_Click"/>
-                <Separator/>
-                <MenuItem Header="Exit" Click="Exit_Click"/>
-            </MenuItem>
-            <MenuItem Header="Edit">
-                <MenuItem Header="New" Click="NewRecord_Click"/>
-                <MenuItem Header="Remove Selected" Click="RemoveSel_Click"/>
-            </MenuItem>
+            <MenuItem Header="Pliki">
+                <MenuItem Header="Otwórz" Click="Open_Click"/>
+                    <MenuItem Header="Zapisz" Click="Save_Click"/>
+                    <Separator/>
+                    <MenuItem Header="Wyjście" Click="Exit_Click"/>
+                </MenuItem>
+                <MenuItem Header="Edytuj">
+                    <MenuItem Header="Nowy uczeń" Click="NewRecord_Click"/>
+                    <MenuItem Header="Usuń wybrane" Click="RemoveSel_Click"/>
+                </MenuItem>
         </Menu>
         <ListView x:Name="listaUczniow" Grid.Row="1" SelectionMode="Extended">
             <ListView.View>
